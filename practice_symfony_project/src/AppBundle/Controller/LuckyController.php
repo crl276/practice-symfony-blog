@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
-class LuckyController
+class LuckyController extends Controller
 {
 
 	/**
