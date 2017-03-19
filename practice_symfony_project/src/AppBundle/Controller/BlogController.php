@@ -10,7 +10,7 @@ class BlogController extends Controller
 	/**
 	* @Route("/blog", name="blog_list", requirements={"page": "\d+"})
 	*/
-	public function listAction($page)
+	public function listAction($page = 1)
 	{
 
 	}
@@ -20,6 +20,11 @@ class BlogController extends Controller
 	*/
 	public function showAction($slug)
 	{
+
+		$url = $this->generateUrl(
+			'blog_show',
+			array('slug' => 'my-blog-post')
+			);
 
 	}
 }
