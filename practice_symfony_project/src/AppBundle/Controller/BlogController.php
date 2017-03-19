@@ -8,9 +8,9 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class BlogController extends Controller
 {
 	/**
-	* @Route("/blog", name="blog_list")
+	* @Route("/blog", name="blog_list", requirements={"page": "\d+"})
 	*/
-	public function listAction()
+	public function listAction($page)
 	{
 
 	}
@@ -20,6 +20,6 @@ class BlogController extends Controller
 	*/
 	public function showAction($slug)
 	{
-		
+
 	}
 }
