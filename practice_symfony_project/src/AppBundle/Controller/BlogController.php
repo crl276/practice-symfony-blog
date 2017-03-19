@@ -25,6 +25,16 @@ class BlogController extends Controller
 			'blog_show',
 			array('slug' => 'my-blog-post')
 			);
+	}
 
+	public function indexAction()
+	{
+		return $this->redirectToRoute('homepage');
+
+		return $this->redirectToRoute('homepage', array(), 301);
+
+		return $this->redirectToRoute('blog_show', array('slug' => 'my-page'));
+
+		return $this->redirect('http://symfony.com/doc');
 	}
 }
