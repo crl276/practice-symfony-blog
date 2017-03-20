@@ -14,12 +14,6 @@ class GitHutController extends Controller
 	*/
 	public function githutAction(Request $request)
 	{
-		return $this->render('githut.index.html.twig');
-
-		$data = json_decode('{"login": "codereviewvideos"}', true);
-
-		print_r($data);
-
 		$templateData = [
 			'avatar_url' 	=> 'https://avatars.githubusercontent.com/u/12968163?v=3',
 			'name' 			=> 'Code Review Videos',
@@ -36,5 +30,9 @@ class GitHutController extends Controller
 				'public_repos'	=> 33,
 			]
 		];
+
+		return $this->render('githut/index.html.twig', templateData);
+
+		
 	}
 }
