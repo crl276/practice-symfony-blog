@@ -14,6 +14,11 @@ class GitHutController extends Controller
 	*/
 	public function githutAction(Request $request)
 	{
+
+		$data = json_decode('{"login": "codereviewvideos"}', true);
+
+		print_r($data);
+
 		$templateData = [
 			'avatar_url' 	=> 'https://avatars.githubusercontent.com/u/12968163?v=3',
 			'name' 			=> 'Code Review Videos',
