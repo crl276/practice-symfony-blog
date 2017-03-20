@@ -15,5 +15,26 @@ class GitHutController extends Controller
 	public function githutAction(Request $request)
 	{
 		return $this->render('githut.index.html.twig');
+
+		$data = json_decode('{"login": "codereviewvideos"}', true);
+
+		print_r($data);
+
+		$templateData = [
+			'avatar_url' 	=> 'https://avatars.githubusercontent.com/u/12968163?v=3',
+			'name' 			=> 'Code Review Videos',
+			'login' 		=> 'codereviewvideos',
+			'details'		=> [
+				'company'		=> 'Code Review Views',
+				'location'		=> 'Preston, Lancs, UK',
+				'joined_on'		=> 'Joined on Fake Date For Now',
+			],
+			'blog'			=> 'https://codereviewvideos.com/',
+			'social_data'	=> [
+				'followers'		=> 11,
+				'following'		=> 23,
+				'public_repos'	=> 33,
+			]
+		];
 	}
 }
