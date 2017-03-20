@@ -15,26 +15,45 @@ class GitHutController extends Controller
 	public function githutAction(Request $request)
 	{
 
-		$data = json_decode('{"login": "codereviewvideos"}', true);
-
-		print_r($data);
-
-		$templateData = [
-			'avatar_url' 	=> 'https://avatars.githubusercontent.com/u/12968163?v=3',
-			'name' 			=> 'Code Review Videos',
-			'login' 		=> 'codereviewvideos',
-			'details'		=> [
-				'company'		=> 'Code Review Views',
-				'location'		=> 'Preston, Lancs, UK',
-				'joined_on'		=> 'Joined on Fake Date For Now',
-			],
-			'blog'			=> 'https://codereviewvideos.com/',
-			'social_data'	=> [
-				'followers'		=> 11,
-				'following'		=> 23,
-				'public_repos'	=> 33,
-			]
-		];
+		 $templateData = [
+            'avatar_url'  => 'https://avatars.githubusercontent.com/u/12968163?v=3',
+            'name'        => 'Code Review Videos',
+            'login'       => 'codereviewvideos',
+            'details'     => [
+                'company'   => 'Code Review Videos',
+                'location'  => 'Preston, Lancs, UK',
+                'joined_on' => 'Joined on Fake Date For Now',
+            ],
+            'blog'        => 'https://codereviewvideos.com/,
+            'social_data' => [
+                'followers'    => 11,
+                'following'    => 22,
+                'public_repos' => 33,
+            ],
+            // new data here
+            'repo_count' => 100,
+            'most_stars' => 50,
+            'repos' => [
+                [
+                    'url' => 'https://codereviewvideos.com',
+                    'name' => 'Code Review Videos',
+                    'description' => 'some repo description',
+                    'stargazers_count' => '999',
+                ],
+                [
+                    'url' => 'http://bbc.co.uk',
+                    'name' => 'The BBC',
+                    'description' => 'not a real repo',
+                    'stargazers_count' => '666',
+                ],
+                [
+                    'url' => 'http://google.co.uk',
+                    'name' => 'Google',
+                    'description' => 'another fake repo description',
+                    'stargazers_count' => '333',
+                ],
+            ],
+        ];
 
 		return $this->render('githut/index.html.twig', templateData);
 
