@@ -1,26 +1,17 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Service;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
-
-class GitHutController extends Controller
+class GitHubApi
 {
 
-	/**
-	* @Route("/githut", name="githut")
-	*/
-	public function githutAction(Request $request)
-	{
-
-        $client = new \GuzzleHttp\Client();
+	public function getProfile($username)
+	{	$client = new \GuzzleHttp\Client();
         $response = $client->request('GET', 'https://api.github.com/users/codereviewvideos');
 
-         $data = json_decode($response->getBody()->getContents(), true);
+        $data = json_decode($response->getBody()->getContents(), true);
 
-         return $this->render('githut/index.html.twig', [
+        return [
             'avatar_url'  => $data['avatar_url'],
             'name'        => $data['name'],
             'login'       => $data['login'],
@@ -35,9 +26,6 @@ class GitHutController extends Controller
                 "Followers"    => $data['followers'],
                 "Following"    => $data['following'],
             ]
-        ]);
-
-		return $this->render('githut/index.html.twig');
-		
-	}
+        ];
+    }
 }
