@@ -5,8 +5,8 @@
 			Important Stats
 
 			<div class="pull-right">
-				<span class="label label-primary">Repositories: {{ repo: count }}</span>
-				<span class="label label-success">Most Stars: {{ most_stars }}</span>
+				<span class="label label-primary">Repositories: </span>
+				<span class="label label-success">Most Stars: </span>
 			</div>
 
 		</div>
@@ -17,9 +17,7 @@
 			</div>
 
 			<ul class="list-group">
-				{% for repo in repos %}
-				<li class="list-group-item">{% include ':githut:repo.html.twig' %}</li>
-				{% endfor %}
+				
 			</ul>
 		</div>
 
