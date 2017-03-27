@@ -45,6 +45,9 @@ class RedditController extends Controller
 		return $this->redirectToRoute('list');
 	}
 
+	/**
+	* @Route("/update/{id}/{text}", name="update")
+	*/
 	public function updateAction($id, $text)
 	{
 		$em = $this->getDoctrine()->getManager();
