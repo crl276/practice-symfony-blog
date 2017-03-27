@@ -8,5 +8,11 @@ services:
 #        class: AppBundle\Directory\ClassName
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
 
+  reddit_scraper:
+    class: AppBundle\Service\RedditScraper
+    arguments:
+      - "@doctrine.orm.default_entity_manager"
+
   github_api:
     class: AppBundle\Service\github_api
+
