@@ -15,4 +15,15 @@ class RedditScraper
 	{
 		$this->$em = $em;
 	}
+
+	public function scrape()
+	{
+		$client = new \GuzzleHttp\Client();
+
+		$response = $client->request('GET', 'https://api.reddit.com/r/php.json');
+
+		$data = json_decode($response->getBody()->getContents(), true);
+
+		return $data
+	}
 }
