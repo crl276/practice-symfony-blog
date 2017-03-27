@@ -13,10 +13,9 @@ class RedditController extends Controller
 	public function listAction()
 	{
 
+//retrieve all RedditPost entities and set it equal to var $posts
 		$posts = $this->getDoctrine()->getRepository('AppBundle:RedditPost')->findAll();
-
-
-
+//Render this objject rendered with an array with the posts passed
 		return $this->render('/reddit/index.html.twig', [
 			'posts' => $posts
 		]);
