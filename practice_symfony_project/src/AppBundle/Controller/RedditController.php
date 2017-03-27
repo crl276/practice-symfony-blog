@@ -26,6 +26,15 @@ class RedditController extends Controller
 	*/
 	public function createAction($test)
 	{
-		
+		$em = $this->getDoctrine()->getManager();
+
+		$post = new RedditPost();
+		$post->setTitle('hello' . $test);
+
+		$em->persist($post);
+		$em->flush();
+
+
+		return $this->redirectToRoute('list');
 	}
 }
