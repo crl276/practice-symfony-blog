@@ -50,6 +50,29 @@ class RedditController extends Controller
 	*/
 	public function updateAction($id, $text)
 	{
+//get access to the Entity Manager
+		$em = $this->getDoctrine()->getManager();
+//set variable post equal to the entity of RedditPost that we find by passing the $id
+		$post = $em->getRepository('AppBundle:RedditPost')->find($id);
+//if no post, throw a createNotFoundException
+		if(!$post) {
+			throw $this->createNotFoundException('that\'s not a record');
+		}
+
+//setTitle with the text passed through in the URL
+		/** @var $post RedditPost */
+		$post->setTitle('updated title ' . $text);
+
+		$em->flush();
+
+		return $this->redirectToRoute('list');
+	}
+
+	/**
+	* @Route("/delete/{id}", name="delete")
+	*/
+	public function deleteAction($id)
+	{
 		$em = $this->getDoctrine()->getManager();
 
 		$post = $em->getRepository('AppBundle:RedditPost')->find($id);
@@ -58,11 +81,10 @@ class RedditController extends Controller
 			throw $this->createNotFoundException('that\'s not a record');
 		}
 
-		/** @var $post RedditPost */
-		$post->setTitle('updated title ' . $text);
-
+		$em->remove($id);
 		$em->flush();
 
 		return $this->redirectToRoute('list');
+				
 	}
 }
